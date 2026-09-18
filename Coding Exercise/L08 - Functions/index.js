@@ -93,7 +93,7 @@ console.log('Multiplication:', mult1(9,9));
 
 // Shorter Way
 const add1 = (e,f) => e + f;
-console.log('Addtion:', add1(4,5));+
+console.log('Addtion:', add1(4,5));
 
 //Function Calling Other Function
 
