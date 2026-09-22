@@ -48,3 +48,75 @@ const arrItem = Array.from(listItems);
 arrItem.forEach((item) => {
     console.log(item.textContent)
 });
+
+console.log('--------')
+
+//3.getElementsByTagName
+
+const contents = document.getElementById('content').getElementsByTagName('p');
+console.log(contents);
+
+function contentItemStyle(){
+    contents.item(0).style.color = 'red';
+    contents.item(1).style.fontSize = '14px';
+    contents.item(2).style.fontWeight = '700';
+    contents.item(3).style.backgroundColor = 'pink';
+    contents.item(3).style.color = 'white';
+}
+contentItemStyle();
+
+function contentItemsStyle(){
+    for(let i=0; i<contents.length; i++){
+        contents.item(i).style.padding = '10px';
+    }
+}
+contentItemsStyle();
+
+// Removing elements to DOM
+
+const message = document.getElementById('message');
+setTimeout(() =>{
+    message.remove();
+}, 3000);
+
+// Adding elements to DOM
+
+const newParagraph = document.createElement('p');
+newParagraph.textContent = 'This is new parapgraph added dynamically.';
+newParagraph.style.color = 'green';
+newParagraph.classList.add('new-paragraph');
+const container = document.getElementById('main');
+
+/* 
+appendChild(): Adds a new element as the last child of the parent element
+insertBefore(): Inserts a new element before an existing child element.
+insertAdjacentHTML(): Inserts HTML content at a specified position relative to an element
+*/
+
+//container.appendChild(newParagraph);
+//container.insertBefore(newParagraph, heading);
+
+container.insertAdjacentHTML('afterbegin','<p>See me after main begin</p>');
+container.insertAdjacentHTML('afterend','<p>See me after main end</p>');
+container.insertAdjacentHTML('beforebegin','<p>See me Before main begin</p>');
+container.insertAdjacentHTML('beforeend','<p style=" padding-top: 10px;">See me Before main end</p>');
+
+//4.querySelector
+// Selecting Element using querSelector works both class or ID more flexibility
+
+const subTitle =  document.querySelector('#subtitle')
+console.log(subTitle.textContent);
+
+setTimeout(() => {
+    subTitle.textContent = 'New Subtitle from JS';
+}, 3000);
+
+//5.querySelectorAll
+// Selecting Multiple Element using querySelectorAll
+
+const listItemsQuery =  document.querySelectorAll('.list-item');
+console.log(subTitle.textContent);
+
+listItemsQuery.forEach((item, index) =>{
+    item.textContent = `Modified Data ${index+2}`;
+});
