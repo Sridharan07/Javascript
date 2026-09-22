@@ -26,3 +26,25 @@ function changeHeading(){
 }
 changeHeading();
 
+//2.getElementByClass
+
+const listItems = document.getElementsByClassName('list-item');
+console.log(listItems);
+console.log(listItems.item(0));
+console.log(listItems.item(1).innerHTML);
+console.log('--------')
+for (let i=0; i<listItems.length; i++){
+    console.log(listItems.item(i).innerHTML);
+}
+console.log('--------')
+for (let i=0; i<listItems.length; i++){
+    console.log(listItems.item(i).textContent);
+}
+console.log('--------')
+for (let i=0; i<listItems.length; i++){
+    listItems.item(i).innerHTML = `Modified Item ${i+1}`;
+}
+const arrItem = Array.from(listItems);
+arrItem.forEach((item) => {
+    console.log(item.textContent)
+});
